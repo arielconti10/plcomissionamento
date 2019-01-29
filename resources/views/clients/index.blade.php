@@ -8,6 +8,11 @@
 @stop
 
 @section('content')
+        @if(session()->get('success'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div><br />
+        @endif
         <div class="row">
             <div class="col-md-12">
                 <div class="box">
@@ -34,15 +39,14 @@
                                     </td>
 
                                     <td>
-                                        <a href="{{ route('clients.edit',$client->id)}}"
-                                           class="btn btn-primary">Editar</a>
                                         <form
-                                            style="float: left;margin: 0 10px 0 0;width: 60px;"
+                                            style="display: inline-block;margin: 0 0 0 10px ;width: 60px;"
                                             action="{{ route('clients.destroy', $client->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Delete</button>
                                         </form>
+                                        <a style="float: left" href="{{ route('clients.edit',$client->id)}}" class="btn btn-primary">Editar</a>
                                     </td>
                                 </tr>
                             @endforeach

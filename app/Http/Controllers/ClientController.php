@@ -61,7 +61,7 @@ class ClientController extends Controller
 
         $client->save();
 
-        return redircet('/clients')->with('success', 'Cliente inserido');
+        return redirect('/clients')->with('success', 'Cliente inserido com sucesso');
     }
 
     /**
@@ -97,7 +97,19 @@ class ClientController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name'=>'required',
+            'document'=> 'required|integer',
+            'telephone' => 'required|integer'
+        ]);
+
+        $client = Client::find($id);
+        $client->name = $request->get('name');
+        $client->document = $request->get('document');
+        $client->telephone = $request->get('telephone');
+        $client->save();
+
+        return redirect('/clients')->with('success', 'Cliente atualizado com sucesso');
     }
 
     /**
@@ -108,9 +120,9 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $client = Client::find($id)->first();
-        $client->destroy();
+        $client = Client::find($id);
+        $client->delete();
 
-        return redirect('/clients');
+        return redirect('/clients')->with('success', 'Cliente removido com sucesso');
     }
 }

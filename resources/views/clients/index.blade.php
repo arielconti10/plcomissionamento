@@ -3,11 +3,11 @@
 @section('title', 'AdminLTE')
 <div class="container">
 
-@section('content_header')
-    <h1>Clients</h1>
-@stop
+    @section('content_header')
+        <h1>Clients</h1>
+    @stop
 
-@section('content')
+    @section('content')
         @if(session()->get('success'))
             <div class="alert alert-success">
                 {{ session()->get('success') }}
@@ -17,9 +17,12 @@
             <div class="col-md-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Bordered Table</h3>
+                        <h3 class="box-title">Lista de clientes cadastrados</h3>
                     </div>
                     <div class="box-body">
+                        <a href="/clients/create" class="btn btn-primary">Novo cliente</a>
+                        <br />
+                        <br />
                         <table class="table table-bordered">
                             <tbody>
                             <tr>
@@ -40,8 +43,8 @@
 
                                     <td>
                                         <form
-                                            style="display: inline-block;margin: 0 0 0 10px ;width: 60px;"
-                                            action="{{ route('clients.destroy', $client->id)}}" method="post">
+                                                style="display: inline-block;margin: 0 0 0 10px ;width: 60px;"
+                                                action="{{ route('clients.destroy', $client->id)}}" method="post">
                                             @csrf
                                             @method('DELETE')
                                             <button class="btn btn-danger" type="submit">Delete</button>
@@ -57,5 +60,5 @@
                 </div>
             </div>
         </div>
-@stop
+    @stop
 </div>

@@ -3,11 +3,11 @@
 @section('title', 'AdminLTE')
 <div class="container">
 
-@section('content_header')
-    <h1>Clientes</h1>
-@stop
+    @section('content_header')
+        <h1>Clientes</h1>
+    @stop
 
-@section('content')
+    @section('content')
         <div class="row">
             <div class="col-md-12">
 
@@ -28,7 +28,7 @@
                             @csrf
                             <div class="form-group">
                                 <label for="name">Nome</label>
-                                <input class="form-control" type="text" name="nome" value="{{ $client->name }}">
+                                <input class="form-control" type="text" name="name" value="{{ $client->name }}">
                             </div>
                             <div class="form-group">
                                 <label for="document">CPF</label>
@@ -38,14 +38,11 @@
                                 <label for="telephone">Telefone</label>
                                 <input class="form-control" type="text" name="telephone" value="{{ $client->telephone }}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary">Atualizar</button>
                         </div>
                     </form>
-
                 </div>
-
-
             </div>
         </div>
-@stop
+    @stop
 </div>

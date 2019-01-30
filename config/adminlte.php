@@ -108,19 +108,26 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'Menu principal',
         [
             'text' => 'Clientes',
             'url'  => 'clients',
             'icon' => 'users'
-//            'can'  => 'manage-blog',
+        ],
+        [
+            'text' => 'Funcionários',
+            'url'  => 'employees',
+            'icon' => 'users'
         ],
         [
             'text'        => 'Contratos',
             'url'         => 'contracts',
             'icon'        => 'file',
-//            'label'       => 4,
-//            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Lojas',
+            'url'         => 'shops',
+            'icon'        => 'building',
         ],
 //        'ACCOUNT SETTINGS',
 //        [

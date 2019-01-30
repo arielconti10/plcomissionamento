@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\employee;
+use App\Employee;
 use App\Shop;
 use Illuminate\Http\Request;
 
@@ -53,14 +53,14 @@ class EmployeeController extends Controller
         $request->validate([
             'name' => 'required',
             'document' => 'required',
-            'shop_id' => 'required',
+            'shop' => 'required',
             'email' => 'required'
         ]);
 
         $employee = new Employee([
             'name' => $request->get('name'),
             'document' => $request->get('document'),
-            'shop_id' => $request->get('shop_id'),
+            'shop_id' => $request->get('shop'),
             'email' => $request->get('email'),
         ]);
 
@@ -106,14 +106,14 @@ class EmployeeController extends Controller
         $request->validate([
             'name' => 'required',
             'document' => 'required',
-            'shop_id' => 'required',
+            'shop' => 'required',
             'email' => 'required'
         ]);
 
         $employee = Employee::find($id);
         $employee->name = $request->get('name');
         $employee->document = $request->get('document');
-        $employee->shop_id = $request->get('shop_id');
+        $employee->shop_id = $request->get('shop');
         $employee->email = $request->get('email');
         $employee->save();
 

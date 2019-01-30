@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 2',
+    'title' => 'PL Comissionamento',
 
     'title_prefix' => '',
 

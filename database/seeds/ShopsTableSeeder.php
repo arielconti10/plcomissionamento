@@ -11,6 +11,15 @@ class ShopsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('shops')->insert(
+            [
+              'name' => 'Ermelino',
+              'address' => 'Av. Paranaguá, 1442'
+            ],
+            [
+                'name' => 'São Miguek',
+                'address' => 'Av. Nordestina, 584'
+            ]
+        );
     }
 }

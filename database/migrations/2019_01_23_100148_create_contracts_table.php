@@ -20,7 +20,7 @@ class CreateContractsTable extends Migration
             $table->string('organ');
             $table->string('bank');
             $table->unsignedInteger('employee_id');
-            $table->unsignedInteger('shop_id');
+            $table->unsignedInteger('client_id');
             $table->timestamps();
         });
     }

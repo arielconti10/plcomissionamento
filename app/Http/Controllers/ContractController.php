@@ -99,8 +99,10 @@ class ContractController extends Controller
     public function edit($id)
     {
         $contract = Contracts::find($id);
+        $clients = Client::all();
+        $employees = Employee::all();
 
-        return view('contracts.edit', compact('contract'));
+        return view('contracts.edit', compact('contract', 'clients', 'employees'));
     }
 
     /**

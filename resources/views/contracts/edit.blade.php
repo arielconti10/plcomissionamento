@@ -4,7 +4,7 @@
 <div class="container">
 
 @section('content_header')
-    <h1>contractes</h1>
+    <h1>Contratos</h1>
 @stop
 
 @section('content')
@@ -12,7 +12,7 @@
             <div class="col-md-12">
                 <div class="box box-primary">
                     <div class="box-header with-border"><h2>Editar contrato</h2></div>
-                    <form method="post" action="{{ route('contracts.update') }}">
+                    <form method="post" action="{{ route('contracts.update', $contract->id) }}">
                         <div class="box-body">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -30,7 +30,7 @@
                                 <select class="form-control" name="client">
                                     <option>Selecione um cliente</option>
                                     @foreach($clients as $client)
-                                        <option {{ $clients->id == $contract->client->id ? 'selected' : '' }} value="{{ $client->id }}">{{ $client->name }}</option>
+{{--                                        <option {{ $clients->id == $contract->client->id ? 'selected' : '' }} value="{{ $client->id }}">{{ $client->name }}</option>--}}
                                     @endforeach
                                 </select>
                             </div>
@@ -57,7 +57,7 @@
                                     <option>Selecione um funcionário</option>
 
                                     @foreach($employees as $employee)
-                                        <option value="{{ $employee->id }}">
+                                        <option {{ $contract->employee->id == $employee->id ? 'selected' : ''}} value="{{ $employee->id }}">
                                             {{ $employee->name }}
                                         </option>
                                     @endforeach

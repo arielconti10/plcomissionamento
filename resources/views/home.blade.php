@@ -33,7 +33,7 @@
                             <tr>
                                 <td>{{ $contract->id }}</td>
                                 <td> {{ $contract->client->name  }} </td>
-                                <td>{{ $contract->value }}</td>
+                                <td>R${{ number_format($contract->value, 2, ',' , '') }}</td>
                                 <td>{{ $contract->contract_type }}</td>
                                 <td>{{ $contract->organ }}</td>
                                 <td> {{ $contract->bank }} </td>

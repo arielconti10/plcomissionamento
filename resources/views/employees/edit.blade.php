@@ -69,14 +69,15 @@
                                     @foreach($employee->contracts as $contract)
                                         <tr>
                                             <td>{{ $contract->id }}</td>
-                                            <td>{{ $contract->value }}</td>
+                                            <td>R${{ number_format($contract->value, 2, ',', '')}}</td>
                                             <td>{{ $contract->contract_type }}</td>
-                                            <td>{{ $contract->comission_value }}</td>
-                                            <td>{{ $contract->contract_type }}</td>
+                                            <td>{{number_format($contract->comission_value, 2, ',', '') }}</td>
+                                            <td>{{ $contract->comission_percentage . '%'}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
+                                <h3> Total de Comissão: R${{ number_format($total_comissions, 2, ',', '')}}</h3>
                             </div>
                         </div>
                     </div>

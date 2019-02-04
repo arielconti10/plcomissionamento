@@ -91,7 +91,13 @@ class EmployeeController extends Controller
         $shops = Shop::all();
         $employee = Employee::find($id);
 
-        return view('employees.edit', compact('employee', 'shops'));
+        $total_comissions = 0;
+
+        foreach($employee->contracts as $contract){
+            $total_comissions += $contract->comission_value;
+        }
+
+        return view('employees.edit', compact('employee', 'shops', 'total_comissions'));
     }
 
     /**

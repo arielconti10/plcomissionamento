@@ -12,7 +12,9 @@ class Contracts extends Model
         'organ',
         'bank',
         'employee_id',
-        'client_id'
+        'client_id',
+        'comission_percentage',
+        'comission_value'
     ];
 
     public function employee(){

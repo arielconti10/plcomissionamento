@@ -59,6 +59,8 @@ class ContractController extends Controller
             'bank' => 'required',
             'employee' => 'required',
             'client' => 'required',
+            'comission_percentage' => 'required',
+//            'comission_value' => 'required',
         ]);
 
         $contract = new Contracts([
@@ -68,6 +70,8 @@ class ContractController extends Controller
             'bank' => $request->get('bank'),
             'employee_id' => $request->get('employee'),
             'client_id' => $request->get('client'),
+            'comission_percentage' => $request->get('comission_percentage'),
+            'comission_value' => $request->get('value') * $request->get('comission_percentage') / 100,
         ]);
 
         $contract->save();

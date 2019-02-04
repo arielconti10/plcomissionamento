@@ -33,12 +33,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="contract_type">Tipo de contrato</label>
-                                <input class="form-control" type="text" name="contract_type" placeholder="Tipo de contrato" >
+                                <select name="contract_type" id="contract_type" class="form-control">
+                                    <option value="NOVO">NOVO</option>
+                                    <option value="REFIN">REFIN</option>
+                                </select>
+                                {{--<input class="form-control" type="text" name="contract_type" placeholder="Tipo de contrato" >--}}
                             </div>
-
                             <div class="form-group">
                                 <label for="value">Valor do contrato</label>
-                                <input class="form-control" type="text" name="value" placeholder="Valor do contrato" >
+                                <input class="form-control" type="number" step=".01" name="value" placeholder="Valor do contrato" >
                             </div>
                             <div class="form-group">
                                 <label for="telephone">Orgão</label>
@@ -59,6 +62,18 @@
                             <div class="form-group">
                                 <label for="bank">Banco</label>
                                 <input class="form-control" type="text" name="bank" placeholder="Banco" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="bank">Porcentagem de comissão (%)</label>
+                                <input class="form-control"
+                                       type="number"
+                                       name="comission_percentage"
+                                       placeholder="Porcentagem de comissão"
+                                       min="0"
+                                       {{--value="5"--}}
+                                       {{--disabled--}}
+                                >
                             </div>
                             <button type="submit" class="btn btn-primary">Salvar</button>
                         </div>

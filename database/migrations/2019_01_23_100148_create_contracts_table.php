@@ -21,6 +21,8 @@ class CreateContractsTable extends Migration
             $table->string('bank');
             $table->unsignedInteger('employee_id');
             $table->unsignedInteger('client_id');
+            $table->unsignedDecimal('comission_percentage');
+            $table->unsignedDecimal('comission_value');
             $table->timestamps();
         });
     }

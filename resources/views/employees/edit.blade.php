@@ -50,6 +50,36 @@
                             <button type="submit" class="btn btn-primary">Atualizar</button>
                         </div>
                     </form>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-10">
+                                <h3>Comissões</h3>
+
+                                <table name="contracts" class="table table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>ID Contrato</th>
+                                        <th>Valor</th>
+                                        <th>Tipo contrato</th>
+                                        <th>Valor comissão</th>
+                                        <th>Taxa comissão</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($employee->contracts as $contract)
+                                        <tr>
+                                            <td>{{ $contract->id }}</td>
+                                            <td>{{ $contract->value }}</td>
+                                            <td>{{ $contract->contract_type }}</td>
+                                            <td>{{ $contract->comission_value }}</td>
+                                            <td>{{ $contract->contract_type }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

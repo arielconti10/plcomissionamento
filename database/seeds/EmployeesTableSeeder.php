@@ -16,26 +16,28 @@ class EmployeesTableSeeder extends Seeder
                 'name' => 'JUCIANE',
                 'document' => '000.000.000-00',
                 'email' => 'juciane@plprestadora.com.br',
-                'shop_id   ' => '1',
-            ],
-            [
-                'name' => 'VITOR',
-                'document' => '000.000.000-00',
-                'email' => 'vitor@plprestadora.com.br',
-                'shop_id   ' => '2',
-            ],
+                'shop_id' => '1',
+        ]);
+        DB::table('employees')->insert(
+        [
+            'name' => 'VITOR',
+            'document' => '000.000.000-00',
+            'email' => 'vitor@plprestadora.com.br',
+            'shop_id' => '2',
+        ]);
+        DB::table('employees')->insert(
             [
                 'name' => 'IRENE',
                 'document' => '000.000.000-00',
                 'email' => 'irene@plprestadora.com.br',
-                'shop_id   ' => '1',
-            ],
-            [
-                'name' => 'ROSY',
-                'document' => '000.000.000-00',
-                'email' => 'rosy@plprestadora.com.br',
-                'shop_id   ' => '2',
-            ]
-        );
+                'shop_id' => '1',
+            ]);
+        DB::table('employees')->insert(
+        [
+            'name' => 'ROSY',
+            'document' => '000.000.000-00',
+            'email' => 'rosy@plprestadora.com.br',
+            'shop_id' => '2',
+        ]);
     }
 }

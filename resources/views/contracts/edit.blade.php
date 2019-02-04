@@ -4,16 +4,15 @@
 <div class="container">
 
 @section('content_header')
-    <h1>Clientes</h1>
+    <h1>contractes</h1>
 @stop
 
 @section('content')
         <div class="row">
             <div class="col-md-12">
-
                 <div class="box box-primary">
-                    <div class="box-header with-border"><h2>Editar Cliente</h2></div>
-                    <form method="post" action="{{ route('clients.update', $client->id) }}">
+                    <div class="box-header with-border"><h2>Editar contrato</h2></div>
+                    <form method="post" action="{{ route('contracts.update') }}">
                         <div class="box-body">
                             @if ($errors->any())
                                 <div class="alert alert-danger">
@@ -24,28 +23,56 @@
                                     </ul>
                                 </div>
                             @endif
-                            @method('PATCH')
+                            @method('POST')
                             @csrf
                             <div class="form-group">
-                                <label for="name">Nome</label>
-                                <input class="form-control" type="text" name="nome" value="{{ $client->name }}">
+                                <label for="name">Cliente</label>
+                                <select class="form-control" name="client">
+                                    <option>Selecione um cliente</option>
+                                    @foreach($clients as $client)
+                                        <option {{ $clients->id == $contract->client->id ? 'selected' : '' }} value="{{ $client->id }}">{{ $client->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group">
-                                <label for="document">CPF</label>
-                                <input class="form-control" type="text" name="document" value="{{ $client->document }}">
+                                <label for="contract_type">Tipo de contrato</label>
+                                <select name="contract_type" id="contract_type" class="form-control">
+                                    <option {{ $contract->contract_type == 'NOVO' ? 'selected' : '' }} value="NOVO">NOVO</option>
+                                    <option {{ $contract->contract_type == 'NOVO' ? 'selected' : '' }}  value="REFIN">REFIN</option>
+                                </select>
+                                {{--<input class="form-control" type="text" name="contract_type" placeholder="Tipo de contrato" >--}}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="value">Valor do contrato</label>
+                                <input class="form-control" value="{{ $contract->value }}" type="text" name="value" placeholder="Valor do contrato" >
                             </div>
                             <div class="form-group">
-                                <label for="telephone">Telefone</label>
-                                <input class="form-control" type="text" name="telephone" value="{{ $client->telephone }}">
+                                <label for="telephone">Orgão</label>
+                                <input class="form-control" value="{{ $contract->organ }}" type="text" name="organ" placeholder="Orgão" >
                             </div>
-                            <button type="submit" class="btn btn-primary">Update</button>
+                            <div class="form-group">
+                                <label for="employee">Funcionário</label>
+                                <select name="employee" class="form-control">
+                                    <option>Selecione um funcionário</option>
+
+                                    @foreach($employees as $employee)
+                                        <option value="{{ $employee->id }}">
+                                            {{ $employee->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="bank">Banco</label>
+                                <input class="form-control" type="text" name="bank" placeholder="Banco" >
+                            </div>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
                         </div>
                     </form>
-
                 </div>
-
-
             </div>
         </div>
-@stop
+
+    @stop
 </div>
